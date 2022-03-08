@@ -36,13 +36,14 @@ We provide you with a MinIO docker container. [MinIO](https://docs.min.io/docs/)
 
 The main points you will have to do are the following
 
-1. Import all the data in the bucket provided in the most efficient and performant way possible, ready to be served by an API. Consider the data to be **remote**. You cannot import the data by directly reading the file as if it was located in your local hard drive. 
+1. Import all the data in the bucket provided **in the most efficient and performant way possible**, ready to be served by an API. Consider the data to be **remote**. You cannot import the data by directly reading the file as if it was located in your local hard drive. 
 2. Create an endpoint to be able to retrieve the full collection of cards.
 3. Create an endpoint to be able to retrieve a single card by ID.
 4. Create an endpoint to be able to update a single card by ID.
 5. Update the endpoint of the cards collection to be able to perform a text search. (Optional)
+6. Create a GraphQL endpoint. (Optional)
 
-The technology used preferably should be PHP, and you can use the libraries or frameworks that you want. 
+The technology used preferably should be PHP, and you can use the libraries or frameworks that you want. Feel free to do any design considerations that you want or need. And keep in mind that we're seeking an MVP in order to test how would that work, if that helps you get context.
 
 #### What will be assessed?
 
