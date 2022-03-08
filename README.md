@@ -14,26 +14,25 @@
 
 <br />
 
-## Introduction
+### Introduction
 
 Magic The Gathering (MTG, or just Magic) is a trading card game first published in 1993 by Wizards of the Coast. This game has seen immense popularity and new cards are still released every few months. The strength of different cards in the game can vary wildly and as a result some cards now sell on secondary markets for as high as thousands of dollars.
 
 MTG JSON has an excellent collection of every single Magic Card - stored in JSON data. Version 3.6 (collected September 21, 2016) of their database is provided here.
 
-Full documentation for the data is provided here:
-http://mtgjson.com/documentation.html
+Full documentation for the data is provided here 👉 **http://mtgjson.com/documentation.html**
 
 Also, if you want to include images of the cards in your writeups, you can grab them from the official Wizards of the Coast website using the following URL:
 
-http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=180607&type=card
+**http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=180607&type=card**
 
 Just replace the multiverse ID with the one provided in the mtgjson file.
 
-## Requirements
+### Requirements
 
-The purpose of this challenge is to create an API able to provide information about Magic The Gathering cards. For this, you're provided an S3-like bucket with a big json file (`AllPrintings.json`) with all card information.
+The purpose of this challenge is to create an API able to provide information about Magic The Gathering cards. All card informaton is stored in a S3-like bucket with a big json file: `AllPrintings.json`.
 
-For this challange we provide you with a MinIO docker container. [MinIO](https://docs.min.io/docs/) is a drop-in replacement of S3 that is used in this challenge like if you were interacting with a real S3 bucket. This means that in order to setup a MinIO client (which is compatible with standard S3 clients) you can use `root` as `AWS_KEY` and `1234Abcd` as `AWS_SECRET_KEY`.
+We provide you with a MinIO docker container. [MinIO](https://docs.min.io/docs/) is a drop-in replacement of S3 that is used like if you were interacting with a real S3 bucket. This means that in order to setup a MinIO client (which is compatible with standard S3 clients) you can use `root` as `AWS_KEY` and `1234Abcd` as `AWS_SECRET_KEY`.
 
 The main points you will have to do are the following
 
@@ -45,7 +44,7 @@ The main points you will have to do are the following
 
 The technology used preferably should be PHP, and you can use the libraries or frameworks that you want. 
 
-### What will be assessed?
+#### What will be assessed?
 
 1. Clean, simple and easy-to-understand code.
 2. Time-to-market is a top priority. This means the we value more than everything a simple solution and especially **easy to maintain**
