@@ -45,6 +45,14 @@ The main points you will have to do are the following
 
 The technology used preferably should be PHP, and you can use the libraries or frameworks that you want. Feel free to do any design considerations that you want or need. And keep in mind that we're seeking an MVP in order to test how would that work, if that helps you get context.
 
+#### How to use this repo?
+
+In order for this repo to work, you will need to have **[Docker](https://docs.docker.com/get-docker/)** and **[Docker Compose](https://docs.docker.com/compose/)** installed.
+
+1. Clone this repo into your computer
+2. Run `docker compose up -d`
+3. Now you're ready to browse the MinIO buckets at `http://127.0.0.1:9090/`. It also can be used as a standard S3-like endpoint.
+
 #### What will be assessed?
 
 1. Clean, simple and easy-to-understand code.
