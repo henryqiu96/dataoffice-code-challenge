@@ -31,13 +31,13 @@ Just replace the multiverse ID with the one provided in the mtgjson file.
 
 ## Requirements
 
-The purpose of this challenge is to create an API able to provide information about Magic The Gathering cards. For this a bucket is provided using minio along with a big json file, `AllPrintings.json`, with all card information.
+The purpose of this challenge is to create an API able to provide information about Magic The Gathering cards. For this, you're provided an S3-like bucket with a big json file (`AllPrintings.json`) with all card information.
 
-Minio is a drop-in replacement of S3 that is used in this challenge like if you were interacting with a real S3 bucket.
+For this challange we provide you with a MinIO docker container. [MinIO](https://docs.min.io/docs/) is a drop-in replacement of S3 that is used in this challenge like if you were interacting with a real S3 bucket. This means that in order to setup a MinIO client (which is compatible with standard S3 clients) you can use `root` as `AWS_KEY` and `1234Abcd` as `AWS_SECRET_KEY`.
 
 The main points you will have to do are the following
 
-1. Import all the data in the bucket provided in the most efficient and performant way possible, ready to be served by an API.
+1. Import all the data in the bucket provided in the most efficient and performant way possible, ready to be served by an API. Consider the data to be **remote**. You cannot import the data by directly reading the file as if it was located in your local hard drive. 
 2. Create an endpoint to be able to retrieve the full collection of cards.
 3. Create an endpoint to be able to retrieve a single card by ID.
 4. Create an endpoint to be able to update a single card by ID.
