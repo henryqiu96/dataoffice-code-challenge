@@ -5,14 +5,12 @@
   <img src=".doc/challenges.png" alt="dataoffice code challenge" width="80" height="80">
 </p>
 
-<br />
 
-
-<h3 align="center">
+<h1 align="center">
   <b>
-    SEAT:CODE Dataoffice Challange
+    SEAT:CODE Dataoffice Challenge
   </b>
-</h3>
+</h1>
 
 <br />
 
