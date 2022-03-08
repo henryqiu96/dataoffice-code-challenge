@@ -20,7 +20,7 @@ Magic The Gathering (MTG, or just Magic) is a trading card game first published 
 
 MTG JSON has an excellent collection of every single Magic Card - stored in JSON data. Version 3.6 (collected September 21, 2016) of their database is provided here.
 
-Full documentation for the data is provided here 👉 **http://mtgjson.com/documentation.html**
+Full documentation for the data is provided here 👉 **https://mtgjson.com/**
 
 Also, if you want to include images of the cards in your writeups, you can grab them from the official Wizards of the Coast website using the following URL:
 
