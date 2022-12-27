@@ -6,7 +6,7 @@ require_once "src/S3Wrapper.php";
 require_once "src/CardController.php";
 
 
-function validateUri($uriParts)
+function validateUri($uriParts): void
 {
     // all of our endpoints start with /card as only actions related to cards are available at this moment
     if ($uriParts[1] !== 'card') {
@@ -15,7 +15,7 @@ function validateUri($uriParts)
     }
 }
 
-function getInfoFromRequest($uriParts)
+function getInfoFromRequest($uriParts): array
 {
     $requestMethod = $_SERVER["REQUEST_METHOD"];
 

@@ -11,7 +11,7 @@ class CardController
         $this->setsContent = $this->readSourceData();
     }
 
-    public function processRequest($requestMethod, $cardId, $propertiesToUpdate)
+    public function processRequest($requestMethod, $cardId, $propertiesToUpdate): array
     {
         switch ($requestMethod) {
             case 'GET':
@@ -31,11 +31,11 @@ class CardController
         return $response;
     }
 
-    private function getCardCollection()
+    private function getCardCollection(): array
     {
         return $this->buildSuccessfulResponse($this->setsContent);
     }
-    private function getCard($id)
+    private function getCard($id): array
     {
         $sets = $this->parseSetsContent();
         foreach ($sets as $setContent) {
@@ -50,7 +50,7 @@ class CardController
         return $this->buildNotFoundResponse();
     }
 
-    private function updateCard($id, $propertiesToUpdate)
+    private function updateCard($id, $propertiesToUpdate): array
     {
         $sets = $this->parseSetsContent();
         if (!$this->propertiesAreValid($propertiesToUpdate, $sets)) {
@@ -62,11 +62,9 @@ class CardController
             foreach ($cards as $cardPosition => $card) {
                 $cardId = $card['uuid'];
                 if ($id == $cardId) {
-                    echo $sets[$setPosition]['cards'][$cardPosition]['name'];
                     $cards[$cardPosition] = array_replace($card, $propertiesToUpdate);
                     $sets[$setPosition]['cards'] = $cards;
                     $this->updateSourceData($sets);
-                    echo $sets[$setPosition]['cards'][$cardPosition]['name'];
                     return $this->buildSuccessfulResponse(null);
 
                 }
@@ -83,7 +81,7 @@ class CardController
     metadata and validate the properties against that schema. Deeper
     understanding of the dataset might be required for a more complex
     validation*/
-    private function propertiesAreValid($properties, $sets)
+    private function propertiesAreValid($properties, $sets): bool
     {
         $firstSet = reset($sets);
         $firstCard = $firstSet['cards'][0];
@@ -95,36 +93,36 @@ class CardController
         return true;
     }
 
-    private function parseSetsContent()
+    private function parseSetsContent(): array
     {
         return json_decode($this->setsContent, true);
     }
 
-    private function readSourceData()
+    private function readSourceData(): string
     {
         return $this->s3Wrapper->readObjectContent($this->sourceMetadata['bucketName'], $this->sourceMetadata['keyName']);
     }
 
-    private function updateSourceData($sets)
+    private function updateSourceData($sets): void
     {
         $setsContent = json_encode($sets);
-        $this->s3Wrapper->uploadContentToObject($setsContent, $this->sourceMetadata['bucketName'], 'NewAllPrintings.json'); //$this->sourceMetadata['keyName']
+        $this->s3Wrapper->uploadContentToObject($setsContent, $this->sourceMetadata['bucketName'], 'NewAllPrintings.json'); //TODO: remember replace this again: $this->sourceMetadata['keyName']
     }
 
-    private function buildSuccessfulResponse($body)
+    private function buildSuccessfulResponse($body): array
     {
         $response['statusCodeHeader'] = 'HTTP/1.1 200 OK';
         $response['body'] = $body;
         return $response;
     }
 
-    private function buildNotFoundResponse()
+    private function buildNotFoundResponse(): array
     {
         $response['statusCodeHeader'] = 'HTTP/1.1 404 Not Found';
         $response['body'] = null;
         return $response;
     }
-    private function buildUnprocessableEntityResponse()
+    private function buildUnprocessableEntityResponse(): array
     {
         $response['statusCodeHeader'] = 'HTTP/1.1 422 Unprocessable Entity';
         $response['body'] = json_encode([

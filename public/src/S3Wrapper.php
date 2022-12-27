@@ -16,16 +16,15 @@ class S3Wrapper
         ]);
     }
 
-    public function readObjectContent($bucketName, $keyName)
+    public function readObjectContent($bucketName, $keyName): string
     {
         $s3Object = $this->s3->getObject(['Bucket' => $bucketName, 'Key' => $keyName]);
         return (string) $s3Object['Body'];
     }
 
 
-    public function uploadContentToObject($content, $bucketName, $keyName)
+    public function uploadContentToObject($content, $bucketName, $keyName): void
     {
-        // $setsContent = json_encode($content);
         $this->s3->putObject(['Bucket' => $bucketName, 'Body' => ($content), 'Key' => $keyName]);
     }
 
