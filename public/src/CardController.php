@@ -106,7 +106,7 @@ class CardController
     private function updateSourceData($sets): void
     {
         $setsContent = json_encode($sets);
-        $this->s3Wrapper->uploadContentToObject($setsContent, $this->sourceMetadata['bucketName'], 'NewAllPrintings.json'); //TODO: remember replace this again: $this->sourceMetadata['keyName']
+        $this->s3Wrapper->uploadContentToObject($setsContent, $this->sourceMetadata['bucketName'], $this->sourceMetadata['keyName']);
     }
 
     private function buildSuccessfulResponse($body): array
