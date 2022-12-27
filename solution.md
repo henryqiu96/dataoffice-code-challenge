@@ -5,17 +5,20 @@
 In order to use the API, do the following from the root of the project:
 
 1. Run `docker compose up -d`
-2. Run `php -S 127.0.0.1:8000 -t public`
-3. In another terminal, run the following commands depending on the action you're interested in:
+2. Run `composer install`
+3. Run `php -S 127.0.0.1:8000 -t public`
+4. In another terminal, run the following commands depending on the action you're interested in:
     - Retrieve the full collection of cards: `curl http://127.0.0.1:8000/card`
     - Retrieve a single card by ID: `curl http://127.0.0.1:8000/{ID}`. An example of ID would be: `1669af17-d287-5094-b005-4b143441442f`
     - Update a single card by ID: `curl -X PUT -d {PROPERTIES} http://127.0.0.1:8000/card/{ID}`. An example of PROPERTIES would be updating the card name: `"{\"name\": \"test\"}"`
 
 ## Implementation
 
+The implemented solution consists of a REST API. The main code is located in the `public` directory.
+
 ### Procedure
 
-The implemented solution consists of a REST API. Every time a request is received, the following steps are executed:
+Every time a request is received, the following steps are executed:
 
 1. Read the content of the source data from S3
 2. Depending on the action:
