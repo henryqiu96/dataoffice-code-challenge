@@ -12,6 +12,15 @@ In order to use the API, do the following from the root of the project:
     - Retrieve a single card by ID: `curl http://127.0.0.1:8000/{ID}`. An example of ID would be: `1669af17-d287-5094-b005-4b143441442f`
     - Update a single card by ID: `curl -X PUT -d {PROPERTIES} http://127.0.0.1:8000/card/{ID}`. An example of PROPERTIES would be updating the card name: `"{\"name\": \"test\"}"`
 
+## Testing
+
+Do the following steps to run tests:
+
+1. Run `docker compose up -d` (if haven't done before)
+2. Run `composer install` (if haven't done before)
+3. Run `php -S 127.0.0.1:8000 -t public` (if haven't done before)
+4. In another terminal, run `./vendor/bin/phpunit tests`
+
 ## Implementation
 
 The implemented solution consists of a REST API. The main code is located in the `public` directory.
@@ -51,3 +60,4 @@ Several assumptions were taken when implementing the solution:
 
 ### Dependencies
 - **aws/aws-sdk-php**: used to establish connection with S3
+- **phpunit/phpunit**: used to run tests

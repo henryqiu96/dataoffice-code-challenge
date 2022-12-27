@@ -1,5 +1,8 @@
 {
     "require": {
         "aws/aws-sdk-php": "^3.255"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
     }
 }
